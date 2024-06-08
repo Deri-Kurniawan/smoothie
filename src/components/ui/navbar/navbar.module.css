@@ -1,0 +1,18 @@
+nav * {
+  outline-offset: 8px;
+}
+
+.link-active ~ .link-underline {
+  display: block;
+  width: 30%;
+  transition: opacity 0.3s ease-in-out, width 0.6s ease-in-out;
+}
+
+.link-underline {
+  display: block;
+  width: 0;
+  height: 4px;
+  background-color: rgb(var(--color-accent-red));
+  transition: width 0.3s;
+  border-radius: 20px;
+}
