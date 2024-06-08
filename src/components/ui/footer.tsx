@@ -36,12 +36,12 @@ const Footer = () => {
       initial={{ opacity: 0, y: 100 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1 }}
-      className="container flex justify-between items-center font-medium py-6"
+      className="container flex items-center justify-between py-6 font-medium"
     >
       <p>
         Build by{" "}
         <a
-          className="text-primary transition-colors duration-300 ease-in-out"
+          className="transition-colors duration-300 ease-in-out text-primary"
           href="https://www.deri.my.id"
           target="_blank"
           rel="noreferrer"
@@ -50,7 +50,7 @@ const Footer = () => {
         </a>{" "}
         | Design by{" "}
         <a
-          className="text-primary transition-colors duration-300 ease-in-out"
+          className="transition-colors duration-300 ease-in-out text-primary"
           href="https://www.figma.com/@Nickelfox"
           target="_blank"
           rel="noreferrer"

@@ -43,7 +43,7 @@ export default function Home() {
   );
 
   return (
-    <div className="relative mb-20 container">
+    <div className="container relative mb-20">
       <motion.div
         initial={{ x: -100, y: -100, scale: 0.8, opacity: 0 }}
         animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
@@ -59,7 +59,7 @@ export default function Home() {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="text-9xl text-accent font-bold font-poiret-one relative flex justify-start items-center"
+            className="relative flex items-center justify-start font-bold text-9xl text-accent font-poiret-one"
             aria-label="Smoothies"
           >
             SM
@@ -138,7 +138,7 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1 }}
-                className="w-full h-full flex justify-center items-center relative"
+                className="relative flex items-center justify-center w-full h-full"
               >
                 <motion.span
                   initial={{ width: 0 }}
@@ -166,7 +166,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex items-center justify-center">
           {/* smoothie fruit base */}
           <div className="absolute bottom-0 right-8 rotate-[2.98] -z-[1]">
             {smoothie.imageFruitBase !== "" && (

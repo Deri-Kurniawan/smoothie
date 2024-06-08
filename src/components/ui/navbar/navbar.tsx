@@ -8,7 +8,7 @@ import styles from "./navbar.module.css";
 const Navbar = () => {
   return (
     <motion.nav
-      className="container flex justify-between items-center py-8"
+      className="container flex items-center justify-between py-8"
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
