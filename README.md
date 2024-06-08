@@ -2,6 +2,8 @@
 
 Smoothie is a design created by [Nickefox Design](https://www.figma.com/@Nickelfox) on [Figma Community](https://www.figma.com/community/file/1128586699392676680) and implemented into a web application by [Deri Kurniawan](https://github.com/Deri-Kurniawan) of course with my full animation improvisation.
 
+![Preview](/public/images/demo.png)
+
 **Note**: Currently, this project only implementing 1440px resolution.
 
 ## Tech Stack
