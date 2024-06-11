@@ -1,7 +1,49 @@
+import {
+  IconBrandFigma,
+  IconBrandGithub,
+  IconGlobe,
+} from "@irsyadadl/paranoid";
 import React from "react";
 import { useViewport } from "../../hooks/use-viewport";
-import Footer from "../ui/footer";
-import Navbar from "../ui/navbar/navbar";
+import Footer, { footerLink } from "../ui/footer";
+import Navbar, { NavbarLink } from "../ui/navbar/navbar";
+
+const navbarLinks: NavbarLink[] = [
+  {
+    name: "Home",
+    path: "/",
+  },
+  {
+    name: "Specialties",
+    path: "/specialties",
+  },
+  {
+    name: "About",
+    path: "/about",
+  },
+  {
+    name: "Contact Us",
+    path: "/contact-us",
+  },
+];
+
+const footerLinks: footerLink[] = [
+  {
+    href: "https://www.figma.com/community/file/1128586699392676680",
+    target: "_blank",
+    icon: <IconBrandFigma />,
+  },
+  {
+    href: "https://github.com/Deri-Kurniawan/smoothie",
+    target: "_blank",
+    icon: <IconBrandGithub />,
+  },
+  {
+    href: "https://www.deri.my.id",
+    target: "_blank",
+    icon: <IconGlobe />,
+  },
+];
 
 interface GuestLayoutProps {
   children: React.ReactNode;
@@ -24,9 +66,9 @@ const GuestLayout: React.FC<GuestLayoutProps> = ({ children }) => {
         </div>
       ) : (
         <div className="max-w-[1440px] mx-auto">
-          <Navbar />
+          <Navbar links={navbarLinks} />
           <main>{children}</main>
-          <Footer />
+          <Footer links={footerLinks} />
         </div>
       )}
     </>

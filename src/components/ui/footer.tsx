@@ -1,30 +1,17 @@
-import {
-  IconBrandFigma,
-  IconBrandGithub,
-  IconGlobe,
-} from "@irsyadadl/paranoid";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { FC, useRef } from "react";
 
-const links = [
-  {
-    href: "https://www.figma.com/community/file/1128586699392676680",
-    target: "_blank",
-    icon: <IconBrandFigma />,
-  },
-  {
-    href: "https://github.com/Deri-Kurniawan/smoothie",
-    target: "_blank",
-    icon: <IconBrandGithub />,
-  },
-  {
-    href: "https://www.deri.my.id",
-    target: "_blank",
-    icon: <IconGlobe />,
-  },
-];
+export type footerLink = {
+  href: string;
+  target: string;
+  icon: JSX.Element;
+};
 
-const Footer = () => {
+interface FooterProps {
+  links?: footerLink[];
+}
+
+const Footer: FC<FooterProps> = ({ links = [] }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, {
     once: true,
@@ -58,21 +45,23 @@ const Footer = () => {
           Nickelfox Design
         </a>
       </p>
-      <div className="flex gap-[20px]">
-        {links.map((link, index) => (
-          <a
-            key={index}
-            className={
-              "text-accent hover:text-primary transition-colors duration-300 ease-in-out"
-            }
-            href="https://www.figma.com/community/file/1128586699392676680"
-            target={link.target}
-            rel={link.target == "_blank" ? "noreferrer" : ""}
-          >
-            {link.icon}
-          </a>
-        ))}
-      </div>
+      {links.length > 0 && (
+        <div className="flex gap-[20px]">
+          {links.map((link, index) => (
+            <a
+              key={index}
+              className={
+                "text-accent hover:text-primary transition-colors duration-300 ease-in-out"
+              }
+              href="https://www.figma.com/community/file/1128586699392676680"
+              target={link.target}
+              rel={link.target == "_blank" ? "noreferrer" : ""}
+            >
+              {link.icon}
+            </a>
+          ))}
+        </div>
+      )}
     </motion.footer>
   );
 };

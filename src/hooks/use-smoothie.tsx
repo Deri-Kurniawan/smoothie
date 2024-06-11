@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 
-export interface Smoothie {
+export type Smoothie = {
   id: number;
   name: string;
   description: string;
@@ -10,7 +10,7 @@ export interface Smoothie {
   color: string;
   bgColor: string;
   fillColor: string;
-}
+};
 
 export const smoothieContext = createContext<{
   smoothie: Smoothie;
@@ -34,6 +34,10 @@ export const smoothieContext = createContext<{
   setSmoothies: () => {},
 });
 
+/**
+ *  A custom hook that returns the smoothie context
+ * @returns The smoothie context
+ */
 export const useSmoothie = () => {
   const context = useContext(smoothieContext);
   if (!context) {
