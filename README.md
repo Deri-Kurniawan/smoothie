@@ -31,14 +31,14 @@ This project is using vite as the build tool. To run this project locally, you c
    ```
 3. Run the project
 
-- For Development mode
-  ```bash
-  npm run dev
-  ```
-- For Production mode
-  ```bash
-  npm run build && npm run preview
-  ```
+   - For Development mode
+     ```bash
+     npm run dev
+     ```
+   - For Production mode
+     ```bash
+     npm run build && npm run preview
+     ```
 
 4. Open your browser and go to `http://localhost:5173/`
 5. Happy coding!
