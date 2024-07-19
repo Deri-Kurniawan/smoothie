@@ -22,7 +22,7 @@ const Footer: FC<FooterProps> = ({ links = [] }) => {
       ref={ref}
       initial={{ opacity: 0, y: 100 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5, type: "spring" }}
       className="container flex items-center justify-between py-6 font-medium"
     >
       <p>

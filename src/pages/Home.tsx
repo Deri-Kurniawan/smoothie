@@ -70,7 +70,13 @@ export default function Home() {
               <motion.span
                 initial={{ translateX: 34.5 }}
                 animate={{ translateX: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.5,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 4,
+                }}
                 className="relative block"
               >
                 O
@@ -78,7 +84,13 @@ export default function Home() {
               <motion.span
                 initial={{ translateX: -34.5 }}
                 animate={{ translateX: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.5,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 4,
+                }}
                 className="absolute left-[40%]"
               >
                 O
@@ -87,7 +99,10 @@ export default function Home() {
               <motion.span
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.5,
+                }}
                 className="absolute -top-[40%] left-[22%]"
               >
                 <IconLeafLeft />
@@ -96,7 +111,7 @@ export default function Home() {
               <motion.span
                 initial={{ scale: 1.3 }}
                 animate={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
                 className="absolute -top-[35%] right-[22%]"
               >
                 <IconLeafRight />
@@ -111,8 +126,19 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="font-montserrat font-medium text-sm leading-[21px] tracking-[4%] text-accent/70 mt-4 max-w-[453px]"
           >
-            Smoothies are so healthy, refreshing and the perfect way to pack
-            some extra fruit and veggies into your diet.
+            {"Smoothies are so healthy, refreshing and the perfect way to pack some extra fruit and veggies into your diet."
+              .split(" ")
+              .map((word, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ y: 20, opacity: 0, filter: "blur(2px)" }}
+                  animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                  transition={{ duration: 2, delay: 0.5 + index * 0.1 }}
+                  className="font-montserrat font-medium text-sm leading-[21px] tracking-[4%] text-accent/70"
+                >
+                  {word}{" "}
+                </motion.span>
+              ))}
           </motion.p>
           <ButtonMotion
             initial={{ y: 20, opacity: 0 }}
@@ -143,26 +169,43 @@ export default function Home() {
                 <motion.span
                   initial={{ width: 0 }}
                   animate={{ width: "80%" }}
-                  transition={{ duration: 0.5, delay: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 1,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 6,
+                  }}
                   className={`w-[80%] h-[2px] ${smoothie.bgColor} rounded-full absolute -bottom-8`}
                 />
               </motion.div>
             </h2>
 
             {/* benefit list */}
-            <ul className="flex flex-col gap-[10px]">
+            <motion.ul
+              className="flex flex-col gap-[10px]"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
               {smoothie.benefits.map((benefit, index) => (
                 <motion.li
                   key={index}
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.8 + index * 0.2 }}
+                  initial={{ y: 0, x: -40, opacity: 0 }}
+                  animate={{ y: 0, x: 0, opacity: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.8 + index * 0.2,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 10,
+                  }}
                   className={`font-montserrat font-semibold text-[15px] leading-[130%] tracking-[2%] ${smoothie.color}`}
                 >
                   {benefit}
                 </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </div>
         </div>
 
@@ -174,7 +217,13 @@ export default function Home() {
                 <motion.img
                   initial={{ scale: 0, translateX: -100, opacity: 0 }}
                   animate={{ scale: 1, translateX: 0, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.6,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 10,
+                  }}
                   exit={{ scale: 0, opacity: 0 }}
                   className="w-[338.6px] h-[338.6px]"
                   src={smoothie.imageFruitBase}
@@ -191,17 +240,19 @@ export default function Home() {
             <motion.img
               key={smoothie.id}
               initial={{
-                scale: 0.8,
+                scale: 0.9,
                 opacity: 0,
                 rotate: getRandomValue(90),
               }}
               animate={{ scale: 1, opacity: 1, rotate: 0 }}
               exit={{
-                scale: 0.8,
+                scale: 0.9,
                 opacity: 0,
                 rotate: getRandomValue(90),
               }}
-              transition={{ duration: 0.5 }}
+              transition={{
+                duration: 0.25,
+              }}
               className="w-[511px] h-[511px] transition-all duration-300 ease-in-out z-[2] object-cover"
               src={smoothie.image}
               height={511}

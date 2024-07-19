@@ -20,7 +20,7 @@ const Navbar: FC<NavbarProps> = ({ links = [] }) => {
       className="container flex items-center justify-between py-8"
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, type: "spring", damping: 10, stiffness: 100 }}
     >
       <NavLink to="/">
         <img
