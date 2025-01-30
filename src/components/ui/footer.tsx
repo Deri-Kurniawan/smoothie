@@ -20,9 +20,9 @@ const Footer: FC<FooterProps> = ({ links = [] }) => {
   return (
     <motion.footer
       ref={ref}
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 0 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, type: "spring" }}
+      transition={{ duration: 1, delay: 1, type: "spring" }}
       className="container flex items-center justify-between py-6 font-medium"
     >
       <p>
@@ -53,7 +53,7 @@ const Footer: FC<FooterProps> = ({ links = [] }) => {
               className={
                 "text-accent hover:text-primary transition-colors duration-300 ease-in-out"
               }
-              href="https://www.figma.com/community/file/1128586699392676680"
+              href={link.href}
               target={link.target}
               rel={link.target == "_blank" ? "noreferrer" : ""}
             >
