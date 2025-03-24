@@ -18,7 +18,7 @@ Smoothie is a design created by [Nickefox Design](https://www.figma.com/@Nickelf
 
 ## Deployment
 
-This project is deployed on Vercel. You can access the live demo [https://smoothie.deri.my.id/](https://smoothie.deri.my.id).
+This project is deployed on Vercel. You can access the live demo [https://smoothie.derikn.com/](https://smoothie.derikn.com).
 
 ## Installation
 
